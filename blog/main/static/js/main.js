@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 
 	var siteMenuClone = function() {
 
-		$('.js-clone-nav').each(function() {
+		$('.jss-clone-nav').each(function() {
 			var $this = $(this);
 			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
 		});
@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
 			}
 		})
 
-		$('body').on('click', '.js-menu-toggle', function(e) {
+		$('body').on('click', '.jss-menu-toggle', function(e) {
 			var $this = $(this);
 			e.preventDefault();
 
@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
 
 
 	var sitePlusMinus = function() {
-		$('.js-btn-minus').on('click', function(e){
+		$('.jss-btn-minus').on('click', function(e){
 			e.preventDefault();
 			if ( $(this).closest('.input-group').find('.form-control').val() != 0  ) {
 				$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) - 1);
@@ -99,7 +99,7 @@ jQuery(document).ready(function($) {
 				$(this).closest('.input-group').find('.form-control').val(parseInt(0));
 			}
 		});
-		$('.js-btn-plus').on('click', function(e){
+		$('.jss-btn-plus').on('click', function(e){
 			e.preventDefault();
 			$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) + 1);
 		});

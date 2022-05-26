@@ -32,10 +32,10 @@ def sign_up():
                             password=generate_password_hash(password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            # login_user(user, remember=True)
             flash('Account created! ', category='success')
             return redirect(url_for('main.index_page'))
-    return render_template('register.html', user=current_user)
+    return render_template('signup.html', user=current_user)
 
 
 @user.route('/login', methods=['GET', 'POST'])
@@ -62,3 +62,9 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('user.login'))
+
+
+@user.route('/profile')
+@login_required
+def profile():
+    return render_template('user.html', current_user=current_user)

@@ -8,15 +8,17 @@ DB_NAME = 'database.db'
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'fdsaknmnvuqroipcklam knfkla'  # encrypt the cookies and session data
+    app.config['SECRET_KEY'] = 'fdsaknmnvuqroipcklamknfkla'  # encrypt the cookies and session data
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
     from blog.main.main import main
     from blog.user.user import user
+    from blog.post.post import post
 
     app.register_blueprint(main, url_prefix='/')
     app.register_blueprint(user, url_prefix='/')
+    app.register_blueprint(post, url_prefix='/')
 
     from models import User
 
@@ -24,6 +26,7 @@ def create_app():
 
     login_manager = LoginManager()
     login_manager.login_view = 'user.login'
+    login_manager.login_message_category = 'danger'
     login_manager.init_app(app)
 
     @login_manager.user_loader

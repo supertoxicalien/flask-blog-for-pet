@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+
+{% block banner_section %}
+	<!-- ===========Banner Section start Here========== -->
+	<section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+		<div class="container">
+            <div class="section-wrapper text-center text-uppercase">
+                <h2 class="pageheader-title">Registration Page</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Registration</li>
+                    </ol>
+                </nav>
+            </div>
+		</div>
+	</section>
+	<!-- ===========Banner Section Ends Here========== -->
+
+
+
+	<!-- Login Section Section Starts Here -->
+    <div class="login-section padding-top padding-bottom">
+        <div class=" container">
+            <div class="account-wrapper">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'error' %}
+                                <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" >
+                        <span aria-hidden="true">
+
+                        </span>
+                                    </button>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-success alert-dismissable fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" >
+                        <span aria-hidden="true">
+
+                        </span>
+                                    </button>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h3 class="title">Register Now</h3>
+                <form class="account-form" method="POST">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" name="first_name" id="first_name">
+                    </div>
+{#                    <div class="form-group">#}
+{#                        <input type="text" placeholder="Last Name" name="Lname">#}
+{#                    </div>#}
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" name="password2" id="password2">
+                    </div>
+                    <div class="form-group">
+                        <button class="d-block default-button" type="submit"><span>Get Started Now</span></button>
+                    </div>
+                </form>
+                <div class="account-bottom">
+                    <span class="d-block cate pt-10">Are you a member? <a href="login.html">Login</a></span>
+                    <span class="or"><span>or</span></span>
+                    <h5 class="subtitle">Register With Social Media</h5>
+                    <ul class="match-social-list d-flex flex-wrap align-items-center justify-content-center mt-4">
+                        <li><a href="#"><img src="assets/images/match/social-1.png" alt="vimeo"></a></li>
+                        <li><a href="#"><img src="assets/images/match/social-2.png" alt="youtube"></a></li>
+                        <li><a href="#"><img src="assets/images/match/social-3.png" alt="twitch"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login Section Section Ends Here -->
+
+
+{% endblock %}
